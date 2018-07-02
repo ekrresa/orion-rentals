@@ -1,11 +1,44 @@
+header {
+	background-color: #1d1d1d;
+}
+
 a {
 	text-decoration: none;
 }
 
-ul {
+ul li {
 	list-style: none;
+	display: inline;
+}
+
+li {
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 nav {
 	margin-left: auto;
+}
+
+.align-hor {
+	align-items: center;
+}
+
+.title {
+	font-size: 36px;
+}
+
+.main {
+	width: 100%;
+  height: 400px;
+  text-align: center;
+  color: blue;
+	background: url("../img/ready-player-one.jpg") no-repeat;
+	background-size: cover;
+}
+
+.exp {
+	  height: 100%;
+    background-color: #00132d;
+    opacity: 0.8;
 }
