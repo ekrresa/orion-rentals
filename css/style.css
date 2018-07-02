@@ -1,5 +1,5 @@
 header {
-	background-color: #1d1d1d;
+	background-color: #09102387;
 }
 
 a {
@@ -18,6 +18,12 @@ li {
 
 nav {
 	margin-left: auto;
+}
+
+img {
+	display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .align-hor {
@@ -41,4 +47,17 @@ nav {
 	  height: 100%;
     background-color: #00132d;
     opacity: 0.8;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.grid-row {
+	grid-template-rows: 300px 300px;
+}
+.padding {
+	margin-left: 10px;
+	margin-right: 10px;
 }
