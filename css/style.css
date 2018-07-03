@@ -1,6 +1,6 @@
 header {
 	background-color: #091023f2;
-	padding: 12px;
+	padding: 12px 120px;
 	position: sticky;
   top: -10px;
   z-index: 1;
@@ -10,6 +10,8 @@ header {
 footer {
 	background-color: #091023;
   margin-top: 15px;
+  padding-left: 120px;
+  padding-right: 120px;
 }
 
 h1 {
