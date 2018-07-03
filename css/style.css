@@ -35,6 +35,13 @@ li > input {
   height: 35px;
   border-radius: 17px;
   padding: 17px;
+  background-color: inherit;
+  color: whitesmoke;
+  font-size: 1em;
+}
+
+input:focus {
+	outline: 0;
 }
 
 li {
