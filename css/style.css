@@ -1,14 +1,38 @@
 header {
-	background-color: #09102387;
+	background-color: #091023f2;
+	padding: 12px;
+	position: sticky;
+  top: -10px;
+  z-index: 1;
+  margin-bottom: 15px;
+}
+
+footer {
+	background-color: #091023;
+  margin-top: 15px;
+}
+
+h1 {
+    color: whitesmoke;
+    font-weight: 500;
+    line-height: 1.1;
 }
 
 a {
 	text-decoration: none;
+	color: whitesmoke;
 }
 
 ul li {
 	list-style: none;
 	display: inline;
+}
+
+li > input {
+  width: 200px;
+  height: 35px;
+  border-radius: 17px;
+  padding: 17px;
 }
 
 li {
@@ -24,6 +48,10 @@ img {
 	display: block;
   max-width: 100%;
   height: auto;
+}
+
+hr {
+	border: 1.1px solid #ababc173;
 }
 
 .align-hor {
@@ -44,9 +72,9 @@ img {
 }
 
 .exp {
-	  height: 100%;
-    background-color: #00132d;
-    opacity: 0.8;
+  height: 100%;
+  background-color: #00132d;
+  opacity: 0.92;
 }
 
 .grid {
@@ -60,4 +88,8 @@ img {
 .padding {
 	margin-left: 10px;
 	margin-right: 10px;
+}
+
+.text-center {
+	text-align: center;
 }

@@ -10,13 +10,7 @@ html, body {
 	padding: 0;
     font-family: sans-serif;
     color: whitesmoke;
-    background-color: #08102b;
-}
-
-h1 {
-    color: whitesmoke;
-    font-weight: 500;
-    line-height: 1.1;
+    background-color: #08122bd9;
 }
 
 .row {
@@ -32,7 +26,6 @@ h1 {
 [class*="col-"] {
     float: left;
     padding: 5px;
-    /*border: 1px solid red;*/
 }
 
 .col-1 {
