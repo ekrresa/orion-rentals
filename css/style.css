@@ -81,15 +81,7 @@ hr {
 
 .grid {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-.grid-row {
-	grid-template-rows: 300px 300px;
-}
-.padding {
-	margin-left: 10px;
-	margin-right: 10px;
+	grid-template-columns: 50% 50%;
 }
 
 .text-center {
