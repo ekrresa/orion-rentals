@@ -116,3 +116,8 @@ button {
 .text-center {
 	text-align: center;
 }
+
+.social-icons {
+  float: right;
+  font-size: 19px;
+}
