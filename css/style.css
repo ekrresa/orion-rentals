@@ -31,6 +31,10 @@ a {
 	color: whitesmoke;
 }
 
+a:hover {
+  color: #01bd7e;
+}
+
 ul li {
 	list-style: none;
 	display: inline;
@@ -44,6 +48,7 @@ li > input {
   background-color: inherit;
   color: whitesmoke;
   font-size: 1em;
+  border-color: #01bd7e;
 }
 
 input:focus {
@@ -107,6 +112,10 @@ button {
   color: whitesmoke;
   background-color: #00132d;
   opacity: 0.92;
+}
+
+.sub-header {
+  font-size: 20px;
 }
 
 .description {
