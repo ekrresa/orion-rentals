@@ -7,6 +7,7 @@ header {
 }
 
 footer {
+  font-size: 13px;
 	background-color: #091023;
   margin-top: 15px;
   padding-left: 120px;
@@ -151,4 +152,8 @@ button {
 .social-icons {
   float: right;
   font-size: 19px;
+}
+
+#contact {
+  font-family: inherit;
 }
