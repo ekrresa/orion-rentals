@@ -8,12 +8,10 @@
 
 /***********HEADER***********/
 header {
+  width: 100%;
 	background-color: #091023f2;
-	position: sticky;
   padding-left: 30px;
   padding-right: 30px;
-  top: -10px;
-  z-index: 1;
 }
 
 form.form-inline {
@@ -112,6 +110,7 @@ button {
   text-align: center;
 	background: url("../img/ready-player-one.jpg") no-repeat;
 	background-size: cover;
+  margin-top: 93px;
 }
 
 .grid {
