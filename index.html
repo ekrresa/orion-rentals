@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Orion Film Rentals</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -13,21 +14,39 @@
 
 	<!-- HEADER -->
 	<header>
-		<div class="row align-hor">
-			<div>
-				<span class="title"><i class="fas fa-volleyball-ball"></i>ORION</span>
-			</div>
-			<!-- NAV-BAR -->
-			<nav>
-				<ul>
-					<li><input type="search" placeholder="Search Movies..."></li>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Catalog</a></li>
-					<li><a href="#">Pricing</a></li>
-					<li><a href="#">Sign Up</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
+		<div class="container-fluid">
+
+			<nav class="navbar navbar-expand-lg">
+        <!-- *************NAVBAR LOGO*********** -->
+        <a class="navbar-brand title" href="#"><i class="fas fa-volleyball-ball"></i>  ORION</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img src="img/menu-icon.png"></span>
+        </button>
+        <!-- ***********NAVBAR LINKS************* -->
+        <div class="collapse navbar-collapse nav-bar-right" id="navbarTogglerDemo02">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Movies...">
+          </form>
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Browse Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Plans</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
 		</div>
 	</header>
 
@@ -210,5 +229,8 @@
 		</div>
 	</footer>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -9,10 +9,15 @@
 /***********HEADER***********/
 header {
 	background-color: #091023f2;
-	padding: 12px 120px;
 	position: sticky;
+  padding-left: 30px;
+  padding-right: 30px;
   top: -10px;
   z-index: 1;
+}
+
+form.form-inline {
+    margin-left: auto;
 }
 
 a {
@@ -29,7 +34,7 @@ ul li {
   display: inline;
 }
 
-li > input {
+input[type=search] {
   width: 200px;
   height: 35px;
   border-radius: 17px;
@@ -40,17 +45,23 @@ li > input {
   border-color: #01bd7e;
 }
 
-input:focus {
+input[type=search]:focus {
+  background-color: inherit;
+  color: whitesmoke;
+  border-color: #01bd7e;
   outline: 0;
 }
 
 li {
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
-nav {
-  margin-left: auto;
+.navbar-toggler {
+  width: auto;
+  height: auto;
+  background-color: #01bd7e;
+  border: 2px solid whitesmoke;
 }
 
 .title {
