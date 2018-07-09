@@ -104,13 +104,16 @@ button {
   color: inherit;
 }
 
-.main {
-	width: 100%;
-  height: 350px;
-  text-align: center;
-	background: url("../img/ready-player-one.jpg") no-repeat;
-	background-size: cover;
-  margin-top: 93px;
+.carousel-item {
+  height: 32rem !important;
+}
+
+.carousel-item > img {
+  opacity: 0.1;
+}
+
+.carousel-caption {
+  bottom: 30%;
 }
 
 .grid {
