@@ -1,3 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+html, body {
+  margin-top: 46px;
+  padding: 0;
+    color: whitesmoke;
+    background-color: #08122bd9;
+}
+
 .text-center {
   text-align: center;
 }
@@ -116,13 +128,8 @@ button {
   bottom: 30%;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
 .movies {
-	position: relative;
+  padding: 5px;
 }
 
 .exp {
@@ -134,10 +141,6 @@ button {
 
 .sub-header {
   font-size: 20px;
-}
-
-.description {
-  font-size: 27px;
 }
 
 .caption {
