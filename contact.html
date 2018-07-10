@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Orion Film Rentals: Contact</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<body>
+
+	<header class="fixed-top">
+		<div class="container-fluid">
+
+			<nav class="navbar navbar-expand-lg">
+        <!-- *************NAVBAR LOGO*********** -->
+        <a class="navbar-brand title" href="index.html"><i class="fas fa-volleyball-ball"></i>  ORION</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img src="img/menu-icon.png"></span>
+        </button>
+        <!-- ***********NAVBAR LINKS************* -->
+        <div class="collapse navbar-collapse nav-bar-right" id="navbarTogglerDemo02">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Movies...">
+          </form>
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Browse Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="plans.html">Plans</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+		</div>
+	</header>
+
+	<div class="container">
+      <div class="row justify-content-center">
+        <div style="padding: 15px; color: white; margin: 4px;" class="col-md-6 card card-block bg-dark">
+
+          <h1>Get in Touch With Us!</h1>
+          <div id="error"><?php echo $error.$successMsg; ?></div>
+          <form method="post">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="fullname" name="name" placeholder="Enter your full name..." required autofocus>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject">
+            </div>
+
+            <div class="form-group">
+              <label for="content">What would you like to ask us?</label>
+              <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+            </div>
+
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+	</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
