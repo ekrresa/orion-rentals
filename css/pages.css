@@ -7,8 +7,30 @@ html {
   }
 }
 
+.container {
+  max-width: 960px;
+}
+
+.contact-deck {
+	color: #08122b;
+	padding: 15px;
+	margin: 10px;
+}
+
+.contact-deck > h1 {
+	color: inherit;
+}
+
 .pricing-header {
   max-width: 700px;
+}
+
+.zero-pad {
+	 padding: 0;
+}
+
+.list-unstyled {
+	display: grid;
 }
 
 .card-deck .card {
