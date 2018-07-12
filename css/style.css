@@ -134,6 +134,13 @@ button {
   justify-content: center;
 }
 
+.text-center > h1 {
+  margin-bottom: 40px;
+  font-size: 54px;
+  font-weight: 800;
+  color: #01bd7e;
+}
+
 .carousel-fade .carousel-item {
   opacity: 0;
   transition-duration: .6s;
@@ -212,6 +219,7 @@ footer {
 }
 
 .social-icons {
+  color: inherit;
   float: right;
   font-size: 19px;
   cursor: pointer;
