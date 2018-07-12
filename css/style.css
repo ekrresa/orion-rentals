@@ -12,9 +12,6 @@ html, body {
 
 body {
   height: 100%;
-}
-
-.body{
   background: url('../img/ready-player-one-copy.jpg') no-repeat center center fixed;
   background-size: cover;
 }
