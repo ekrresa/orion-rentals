@@ -113,7 +113,7 @@ button {
 	cursor: pointer;
   width: 120px;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 4px;
   background-color: #01bd7e;
   border: none;
   color: inherit;
@@ -152,6 +152,10 @@ button {
 
 .card-img-overlay:hover {
   opacity: 1;
+}
+
+.card-title {
+  text-align: center;
 }
 
 .sub-header {

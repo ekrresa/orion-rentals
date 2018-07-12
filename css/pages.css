@@ -25,8 +25,9 @@ html {
   max-width: 700px;
 }
 
-.zero-pad {
+.form-btn {
 	 padding: 0;
+   color: whitesmoke;
 }
 
 .list-unstyled {

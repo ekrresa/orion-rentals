@@ -53,11 +53,21 @@
       <div class="row justify-content-center">
         <div class="col-md-6 card card-block bg-light contact-deck">
 
-          <h1>Get in Touch With Us!</h1>
+          <h1>Registration</h1>
           <form method="post">
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="fullname" name="name" placeholder="Enter your full name..." required autofocus>
+              <label for="name">First Name</label>
+              <input type="text" class="form-control" id="firstname" name="firstname" required autofocus>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Last Name</label>
+              <input type="text" class="form-control" id="lastname" name="lastname" required>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Phone</label>
+              <input type="text" class="form-control" id="phone" name="phone" required>
             </div>
 
             <div class="form-group">
@@ -66,16 +76,11 @@
             </div>
 
             <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" class="form-control" id="subject" name="subject">
+              <label for="name">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required>
             </div>
 
-            <div class="form-group">
-              <label for="content">What would you like to ask us?</label>
-              <textarea class="form-control" id="content" name="content" rows="4"></textarea>
-            </div>
-
-            <button type="submit" id="submit" class="btn form-btn">Submit</button>
+            <button type="submit" id="submit" class="btn form-btn">Register</button>
           </form>
         </div>
       </div>
