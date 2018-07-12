@@ -127,36 +127,31 @@ button {
   bottom: 30%;
 }
 
+.card {
+  height: 100%;
+}
+
 .movies {
   padding: 5px;
 }
 
-.exp {
+.card-img-overlay {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  color: whitesmoke;
-  background-color: #00132d;
-  opacity: 0.92;
-}
-
-.sub-header {
-  font-size: 20px;
-}
-
-.caption {
-	position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 15px;
-  background-color: #3e589c75;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 96.4%;
+  align-items: center;
+  justify-content: center;
+  background-color: #3e589c7d;
   opacity: 0;
   transition: all .3s ease-in-out;
 }
 
-.movies:hover .caption {
-	opacity: 1;
+.card-img-overlay:hover {
+  opacity: 1;
+}
+
+.sub-header {
+  font-size: 20px;
 }
 
 /*******FOOTER*******/
