@@ -33,6 +33,7 @@ a {
 
 a:hover {
   color: #01bd7e;
+  text-decoration: none;
 }
 
 ul li {
@@ -98,7 +99,7 @@ img {
 }
 
 hr {
-	border: 1.1px solid #ababc173;
+	border: 0.4px solid #ababc173;
 }
 
 button {
@@ -165,7 +166,7 @@ button {
   height: 100%;
 }
 
-.movies {
+.md-pad {
   padding: 5px;
 }
 
