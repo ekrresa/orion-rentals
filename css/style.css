@@ -189,10 +189,6 @@ button {
   text-align: center;
 }
 
-.sub-header {
-  font-size: 20px;
-}
-
 .jumbotron {
   background-color: inherit;
 }
@@ -213,5 +209,6 @@ footer {
 }
 
 #contact {
-  font-family: inherit;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
