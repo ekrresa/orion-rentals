@@ -14,14 +14,6 @@ body {
   height: 100%;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.align-hor {
-  align-items: center;
-}
-
 /***********HEADER***********/
 header {
   width: 100%;
@@ -120,6 +112,7 @@ button {
 }
 
 .carousel-item {
+  transition: all .3s ease-in-out;
   height: 32rem !important;
 }
 
@@ -128,7 +121,7 @@ button {
 }
 
 .carousel-caption {
-  bottom: 30%;
+  bottom: 40%;
 }
 
 .card {
