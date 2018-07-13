@@ -3,6 +3,15 @@
     font-family: 'Lato', sans-serif;
 }
 
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 html, body {
   margin-top: 46px;
   padding: 0;
@@ -16,6 +25,16 @@ body {
   background-size: cover;
 }
 
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+a:hover {
+  color: #01bd7e;
+  text-decoration: none;
+}
+
 /***********HEADER***********/
 header {
   width: 100%;
@@ -26,16 +45,6 @@ header {
 
 form.form-inline {
     margin-left: auto;
-}
-
-a {
-  text-decoration: none;
-  color: whitesmoke;
-}
-
-a:hover {
-  color: #01bd7e;
-  text-decoration: none;
 }
 
 ul li {
@@ -114,13 +123,11 @@ button {
   color: inherit;
 }
 
+/****************CAROUSEL***************/
+
 .carousel-item {
   transition: all .3s ease-in-out;
   height: 32rem !important;
-}
-
-.carousel-item > img {
-  opacity: 0.1;
 }
 
 .carousel-caption {
@@ -173,6 +180,8 @@ button {
     transform: translate3d(0, 0, 0);
   }
 }
+
+/****************CAROUSEL***************/
 
 .card {
   height: 100%;
