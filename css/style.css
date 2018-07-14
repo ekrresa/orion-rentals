@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 html {
@@ -219,12 +219,19 @@ footer {
   font-size: 13px;
   background-color: #091023;
   margin-top: 15px;
-  padding-left: 120px;
-  padding-right: 120px;
+  padding-left: 51px;
+  padding-right: 51px;
+}
+
+.footer-title {
+  color: #01bd7e;
+}
+
+.address p {
+  margin-bottom: 2px;
 }
 
 .social-icons {
-  color: inherit;
   float: right;
   font-size: 19px;
   cursor: pointer;
