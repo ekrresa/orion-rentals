@@ -225,10 +225,15 @@ footer {
 
 .footer-title {
   color: #01bd7e;
+  font-weight: 600;
 }
 
 .address p {
   margin-bottom: 2px;
+}
+
+.footer-color {
+  color: #f5f5f587;
 }
 
 .social-icons {
