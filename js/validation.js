@@ -1,3 +1,4 @@
+// Checks if email is valid
 function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
@@ -43,8 +44,7 @@ $('#contact').submit(function () {
 		return true;
 	}
 
-}, //$('#status').text("Message sent! We'll get back to you shortly").addClass('alert alert-success')
-);
+});
 
 
 // *************Registration Form Validation*******************
@@ -108,3 +108,19 @@ $('#registration').submit(function () {
 	}
 
 });
+
+// **********************Search Form Validation**********************
+$('#search-form').submit(function () {
+	$("input[type='search']").removeClass('form-error');
+
+	if ($("input[type='search']").val() == '') {
+		$("input[type='search']").addClass('form-error');
+		alert('Please enter name of movie');
+		return false;
+	} else {
+		return true;
+	}
+
+
+})
+

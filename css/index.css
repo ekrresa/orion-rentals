@@ -74,6 +74,10 @@ input[type=search]:focus {
   height: 35px;
 }
 
+.form-error {
+  border-color: red;
+}
+
 li {
   padding-left: 4px;
   padding-right: 4px;
