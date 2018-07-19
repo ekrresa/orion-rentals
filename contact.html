@@ -54,25 +54,26 @@
         <div class="col-md-6 card card-block bg-light contact-deck">
 
           <h1>Get in Touch With Us!</h1>
-          <form method="post">
+          <div id="status"></div>
+          <form method="post" id="contact">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="fullname" name="name" placeholder="Enter your full name..." required autofocus>
+              <input type="text" class="form-control" id="name" placeholder="Enter your full name..." autofocus>
             </div>
 
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="email" required>
+              <input type="email" class="form-control" id="email">
             </div>
 
             <div class="form-group">
               <label for="subject">Subject</label>
-              <input type="text" class="form-control" id="subject" name="subject">
+              <input type="text" class="form-control" id="subject">
             </div>
 
             <div class="form-group">
-              <label for="content">What would you like to ask us?</label>
-              <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+              <label for="content">Content</label>
+              <textarea class="form-control" id="content" rows="4"></textarea>
             </div>
 
             <button type="submit" id="submit" class="btn form-btn">Submit</button>
@@ -85,5 +86,6 @@
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/validation.js"></script>
 </body>
 </html>

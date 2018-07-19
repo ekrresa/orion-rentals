@@ -16,12 +16,12 @@ html, body {
   margin-top: 46px;
   padding: 0;
   color: whitesmoke;
-  background-color: #08122bd9;
+  /*background-color: #08122bd9;*/
 }
 
 body {
   height: 100%;
-  background: url('../img/ready-player-one-copy.jpg') no-repeat center center fixed;
+  background: url('../img/bg-2.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
