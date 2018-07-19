@@ -43,8 +43,8 @@ header {
   padding-right: 30px;
 }
 
-form.form-inline {
-    margin-left: auto;
+.nav-bar-right ul {
+  margin-left: auto;
 }
 
 ul li {
@@ -52,22 +52,26 @@ ul li {
   display: inline;
 }
 
-input[type=search] {
-  width: 200px;
+.form-inline .form-control {
+  width: 185px;
   height: 35px;
-  border-radius: 17px;
+  border-radius: 4px;
   padding: 17px;
   background-color: inherit;
   color: whitesmoke;
   font-size: 1em;
-  border-color: #01bd7e;
 }
 
 input[type=search]:focus {
   background-color: inherit;
   color: whitesmoke;
   border-color: #01bd7e;
-  outline: 0;
+  box-shadow: none;
+}
+
+.form-inline button {
+  width: 40px;
+  height: 35px;
 }
 
 li {
