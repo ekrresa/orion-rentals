@@ -143,6 +143,7 @@ button {
 }
 
 .text-center > h1 {
+  color: #01bd7e;
   margin-bottom: 40px;
   font-size: 54px;
   font-weight: 800;
