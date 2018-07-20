@@ -7,9 +7,10 @@ $(document).ready(function(){
 	// hide search button on focus
 	$("input[type='search']").focusout(function(){
 	    $("#search-btn").hide(1000);
+	    $("input[type='search']").removeClass('form-error');
 	});
 
-	// Checks if email is valid
+	// Function to check if email is valid
 	function isEmail(email) {
 	  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	  return regex.test(email);
@@ -41,9 +42,9 @@ $(document).ready(function(){
 			$('#subject').addClass('form-error');
 		}
 
-		if ($('#content').val() == '') {
-			errorMsg += '<small>The content field is required</small>';
-			$('#content').addClass('form-error');
+		if ($('#message').val() == '') {
+			errorMsg += '<small>The message field is required</small>';
+			$('#message').addClass('form-error');
 		}
 
 
@@ -79,6 +80,7 @@ $(document).ready(function(){
 			errorMsg += '<small>Please fill in your phone number</small><br>';
 			$('#phone').addClass('form-error');
 		}
+		// Checks if phone number is numeric
 		else if (!$.isNumeric($('#phone').val())) {
 			errorMsg += '<small>Your phone number is not numeric</small><br>';
 			$('#phone').addClass('form-error');
@@ -103,6 +105,7 @@ $(document).ready(function(){
 			$('#confirmpassword').addClass('form-error');
 		}
 
+		// Checks if passwords match
 		if ($('#password').val() !== $('#confirmpassword').val()) {
 			errorMsg += '<small>Your passwords don\'t match</small><br>';
 			$('#password').addClass('form-error');
@@ -122,7 +125,6 @@ $(document).ready(function(){
 
 	// **********************Search Form Validation**********************
 	$('#search-form').submit(function () {
-		$("input[type='search']").removeClass('form-error');
 
 		if ($("input[type='search']").val() == '') {
 			$("input[type='search']").addClass('form-error');

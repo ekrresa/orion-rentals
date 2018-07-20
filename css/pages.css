@@ -12,6 +12,10 @@
 	color: inherit;
 }
 
+.form-padding {
+  padding-top: 20px;
+}
+
 .form-btn {
 	 padding: 0;
    color: whitesmoke;
