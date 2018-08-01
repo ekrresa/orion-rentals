@@ -9,7 +9,7 @@
 	require 'mail/SMTP.php';
 
 	$errorMsg = $successMsg = "";
-	$name = $email = $message = "";
+	$name = $email = $message = "";//Initialise form values
 
 	if (isset($_POST["submit"])) {
 
@@ -80,6 +80,7 @@
 			$bodyContent .= "<p><strong>".$message."</strong></p>";
 			$mail->Body = $bodyContent;
 
+			//send the mail, check for errors
 			if($mail->Send()) {
 
 				$name = $email = $message = "";

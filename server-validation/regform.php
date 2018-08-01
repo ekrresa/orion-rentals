@@ -99,6 +99,7 @@
 			$bodyContent .= '<p>Your username is '.$email.'<br>Your password is '.$password.'</p>';
 			$mail->Body = $bodyContent;
 
+			//send the mail, check for errors
 			if($mail->Send()) {
 
 				$firstname = $lastname = $phone = $email = "";
