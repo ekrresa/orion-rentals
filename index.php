@@ -230,6 +230,3 @@
 <script src="js/validation.js"></script>
 </body>
 </html>
-=======
-<?php include_once("years.php"); ?>
->>>>>>> ff1c401a940939a3a74441e6778a686b32c9259e
