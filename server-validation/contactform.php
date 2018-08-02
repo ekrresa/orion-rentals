@@ -88,7 +88,7 @@
 
 			} else {
 
-			  $errorMsg = '<p class="alert alert-danger" role="alert">'.$mail->ErrorInfo;.'</p>';
+			  $errorMsg = '<p class="alert alert-danger" role="alert">'.$mail->ErrorInfo.'</p>';
 
 			}
 	  }
