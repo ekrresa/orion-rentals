@@ -63,7 +63,7 @@
 			//Create a new PHPMailer instance
 			$mail = new PHPMailer;
 
-			$mail->IsSMTP();
+			// $mail->IsSMTP();
 			$mail->SMTPAuth = true;
 			$mail->Host = "smtp.gmail.com";
 			$mail->Port = 587;
