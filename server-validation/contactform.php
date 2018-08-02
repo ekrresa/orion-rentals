@@ -63,7 +63,7 @@
 			//Create a new PHPMailer instance
 			$mail = new PHPMailer;
 
-			// $mail->IsSMTP();
+			$mail->IsSMTP();
 			$mail->SMTPAuth = true;
 			$mail->Host = "smtp.gmail.com";
 			$mail->Port = 587;
@@ -88,7 +88,7 @@
 
 			} else {
 
-			  $errorMsg = '<p class="alert alert-danger" role="alert">There was an error.</p>';
+			  $errorMsg = '<p class="alert alert-danger" role="alert">'.$mail->ErrorInfo;.'</p>';
 
 			}
 	  }
