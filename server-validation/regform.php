@@ -4,9 +4,8 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 
-	require 'mail/Exception.php';
-	require 'mail/PHPMailer.php';
-	require 'mail/SMTP.php';
+	//Load Composer's autoloader
+	require 'vendor/autoload.php';
 
 	$errorMsg = $successMsg = "";
 	$firstname = $lastname = $phone = $email = $password = $confirmpassword = "";
@@ -86,10 +85,10 @@
 			$mail->IsSMTP();
 			$mail->SMTPAuth = true;
 			$mail->Host = "smtp.gmail.com";
-			$mail->Port = 587;
 			$mail->SMTPSecure = "tls";
-			$mail->Username = "kelvinekrresa@gmail.com";
-			$mail->Password = "serenity666";
+			$mail->Port = 587;
+			$mail->Username = "slimchukky@gmail.com";
+			$mail->Password = "ronnie56";
 
 			$mail->setFrom("kelvinekrresa@gmail.com", "Orion Film Rentals");
 			$mail->AddAddress($email, $firstname);
