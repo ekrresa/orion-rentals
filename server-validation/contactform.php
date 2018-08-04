@@ -67,10 +67,10 @@
 			$mail->Host = "smtp.gmail.com";
 			$mail->SMTPSecure = "tls";
 			$mail->Port = 587;
-			$mail->Username = "slimchukky@gmail.com";
-			$mail->Password = "ronnie56";
+			$mail->Username = "ekrresaochuko@gmail.com";
+			$mail->Password = "Aurora@845";
 
-			$mail->setFrom("slimchukky@gmail.com", "Orion Film Rentals");
+			$mail->setFrom("ekrresaochuko@gmail.com", "Orion Film Rentals");
 			$mail->AddAddress($email, $name);
 			$mail->isHTML(true);
 			$mail->Subject = "Orion Film Rentals: Message";
