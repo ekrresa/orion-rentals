@@ -1,0 +1,5 @@
+# Ignore vendor folder
+vendor/
+
+# Ignore vscode folder
+.vscode
