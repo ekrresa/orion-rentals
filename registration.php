@@ -25,48 +25,65 @@
       <div class="row justify-content-center">
         <div class="col-md-6 card card-block bg-light contact-deck">
 
-          <h1>Sign Up!</h1>
-          <div id="status"><?php echo $errorMsg.$successMsg; ?></div>
-          <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" id="registration" class="form-padding">
-            <div class="form-group">
-              <label for="name">First Name</label>
-              <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $firstname;?>" autofocus>
-            </div>
+          <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Login</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-            <div class="form-group">
-              <label for="name">Last Name</label>
-              <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $lastname;?>">
-            </div>
+              <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" id="signupform" class="form-padding">
+                <div class="form-group">
+                  <label for="name">First Name</label>
+                  <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $firstname;?>" autofocus>
+                </div>
 
-            <div class="form-group">
-              <label for="name">Phone</label>
-              <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $phone;?>">
-            </div>
+                <div class="form-group">
+                  <label for="name">Last Name</label>
+                  <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $lastname;?>">
+                </div>
 
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>">
-            </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>">
+                </div>
 
-            <div class="form-group">
-              <label for="name">Password</label>
-              <input type="password" class="form-control" id="password" name="password">
-            </div>
+                <div class="form-group">
+                  <label for="name">Password</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
 
-            <div class="form-group">
-              <label for="name">Confirm Password</label>
-              <input type="password" class="form-control" id="confirmpassword" name="confirmpassword">
-            </div>
+                <button type="submit" id="btn-signup" class="btn form-btn" name="btn-signup">Register</button>
+              </form>
 
-            <button type="submit" id="submit" class="btn form-btn" name="submit">Register</button>
-          </form>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+              <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" id="loginform" class="form-padding">
+
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>">
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Password</label>
+                  <input type="password" class="form-control" id="password" name="password">
+                </div>
+
+                <button type="submit" id="btn-login" class="btn form-btn" name="btn-login">Register</button>
+              </form>
+
+            </div>
+          </div>
+
         </div>
       </div>
 	</div>
-
-  <footer>
-    <?php footer() ?>
-  </footer>
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>

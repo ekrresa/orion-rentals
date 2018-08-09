@@ -5,7 +5,7 @@
 .contact-deck {
 	color: #08122b;
 	padding: 15px;
-	margin: 10px;
+	margin: 30px 10px 10px 10px;
 }
 
 .contact-deck > h1 {
@@ -33,4 +33,16 @@
 .card-deck .card {
     color: #08122b;
     min-width: 220px;
+}
+
+.nav-pills li {
+	width: 50%;
+}
+
+.nav-pills li a {
+	color: #08122b;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #08122bd9;
 }
