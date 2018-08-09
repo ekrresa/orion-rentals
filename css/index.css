@@ -4,6 +4,7 @@
 }
 
 html {
+  height: 100%;
   font-size: 14px;
   background: url('../img/bg-2.jpg') no-repeat center center fixed;
   background-size: cover;
