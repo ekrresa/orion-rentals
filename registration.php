@@ -24,7 +24,7 @@
 	<div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 card card-block bg-light contact-deck">
-
+          <div id="status"><?php echo $errorMsg.$successMsg; ?></div>
           <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sign Up</a>
@@ -33,31 +33,33 @@
               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Login</a>
             </li>
           </ul>
+
           <div class="tab-content" id="myTabContent">
+
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
               <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" id="signupform" class="form-padding">
                 <div class="form-group">
                   <label for="name">First Name</label>
-                  <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $firstname;?>" autofocus>
+                  <input type="text" class="form-control" name="firstname" value="<?php echo $firstname;?>" autofocus required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Last Name</label>
-                  <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $lastname;?>">
+                  <input type="text" class="form-control" name="lastname" value="<?php echo $lastname;?>" required>
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>">
+                  <input type="email" class="form-control" name="email" value="<?php echo $email;?>" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Password</label>
-                  <input type="password" class="form-control" id="password" name="password">
+                  <input type="password" class="form-control" name="password" required>
                 </div>
 
-                <button type="submit" id="btn-signup" class="btn form-btn" name="btn-signup">Register</button>
+                <button type="submit" id="btn-signup" class="btn form-btn" name="btn-signup">Sign Up</button>
               </form>
 
             </div>
@@ -67,15 +69,15 @@
 
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>">
+                  <input type="email" class="form-control" name="email" value="<?php echo $email;?>" required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Password</label>
-                  <input type="password" class="form-control" id="password" name="password">
+                  <input type="password" class="form-control" name="password" required>
                 </div>
 
-                <button type="submit" id="btn-login" class="btn form-btn" name="btn-login">Register</button>
+                <button type="submit" id="btn-login" class="btn form-btn" name="btn-login">Log In</button>
               </form>
 
             </div>

@@ -30,17 +30,17 @@
           <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="contact" class="form-padding">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="<?php echo $name;?>" autofocus>
+              <input type="text" class="form-control" name="name" value="<?php echo $name;?>" autofocus required>
             </div>
 
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" name="email" value="<?php echo $email;?>">
+              <input type="email" class="form-control" name="email" value="<?php echo $email;?>" required>
             </div>
 
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea class="form-control" id="message" rows="4" name="message" value="<?php echo $message;?>"></textarea>
+              <textarea class="form-control" rows="4" name="message" value="<?php echo $message;?>" required></textarea>
             </div>
 
             <button type="submit" id="submit" name="submit" class="btn form-btn">Submit</button>
@@ -48,10 +48,6 @@
         </div>
       </div>
 	</div>
-
-  <footer>
-    <?php footer() ?>
-  </footer>
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
