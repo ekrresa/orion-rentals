@@ -1,6 +1,7 @@
 <?php
-  include("server-validation/regform.php");
-  include 'header-footer.php';
+  session_start();
+  include "forms/register.php";
+  include "forms/login.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,17 +15,71 @@
 	<link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/pages.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 </head>
+<?php
+
+  if (isset($_GET["logout"]) && !empty($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+  }
+
+?>
 <body>
 
 	<header class="fixed-top">
-		<?php head(); ?>
+		<div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg">
+      <!-- *************NAVBAR LOGO*********** -->
+      <a class="navbar-brand title" href="index.php"><i class="fas fa-volleyball-ball"></i>  ORION</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><img src="img/menu-icon.png"></span>
+      </button>
+      <!-- ***********NAVBAR LINKS************* -->
+      <div class="collapse navbar-collapse nav-bar-right" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.php">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="plans.php">Plans</a>
+          </li>
+          <li class="nav-item">
+            <?php
+              if( isset($_SESSION['success']) && !empty($_SESSION['success']) ):
+                  echo '<a class="nav-link" href="users.php?logout=1">Log Out</a>';
+              else:
+                  echo '<a class="nav-link" href="users.php">Sign In</a>';
+              endif;
+            ?>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.php">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact Us</a>
+          </li>
+        </ul>
+        <form id="search-form" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search Movies...">
+          <button id="search-btn" type="submit" style="display: none;"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </nav>
+  </div>
 	</header>
 
 	<div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 card card-block bg-light contact-deck">
-          <div id="status"><?php echo $errorMsg.$successMsg; ?></div>
+          <div>
+            <?php
+              if ($error != "") {
+                echo $error;
+              }
+            ?>
+          </div>
           <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><h4>Sign Up</h4></a>
@@ -41,17 +96,17 @@
               <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" id="signupform" class="form-padding">
                 <div class="form-group">
                   <label for="name">First Name</label>
-                  <input type="text" class="form-control" name="firstname" value="<?php echo $firstname;?>" autofocus required>
+                  <input type="text" class="form-control" name="firstname" autofocus required>
                 </div>
 
                 <div class="form-group">
                   <label for="name">Last Name</label>
-                  <input type="text" class="form-control" name="lastname" value="<?php echo $lastname;?>" required>
+                  <input type="text" class="form-control" name="lastname" required>
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" name="email" value="<?php echo $email;?>" required>
+                  <input type="email" class="form-control" name="email" required>
                 </div>
 
                 <div class="form-group">
@@ -59,7 +114,7 @@
                   <input type="password" class="form-control" name="password" required>
                 </div>
 
-                <button type="submit" id="btn-signup" class="btn form-btn" name="btn-signup">Sign Up</button>
+                <button type="submit" id="btn-signup" class="btn form-btn" name="signup">Sign Up</button>
               </form>
 
             </div>
@@ -77,7 +132,7 @@
                   <input type="password" class="form-control" name="password" required>
                 </div>
 
-                <button type="submit" id="btn-login" class="btn form-btn" name="btn-login">Log In</button>
+                <button type="submit" id="btn-login" class="btn form-btn" name="login">Log In</button>
               </form>
 
             </div>

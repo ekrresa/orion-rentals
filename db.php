@@ -1,12 +1,20 @@
 <?php
 	/* Database connection settings */
 
-	$host = "db4free.net";
-	$username = "chuck_huey";
-	$password = "KyIkzt9mJRsFNkEq";
-	$dbname = "orion_accounts";
+	mysqli_report(MYSQLI_REPORT_STRICT);
 
-	$conn = new mysqli($host, $username, $password,$dbname) or die($mysqli->error);
+	$host = "localhost";
+	$username = "root";
+	$password = "KyIkzt9mJRsFNkEq";
+	$dbname = "localdb";
+
+	try {
+		$conn = new mysqli($host, $username, $password,$dbname);
+	}
+	catch (mysqli_sql_exception $e) {
+		$error = $e->getMessage();
+		echo $error;
+	}
 
 ?>
 

@@ -1,14 +1,13 @@
 <?php
   session_start();
-  include("forms/contactform.php");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;">
 <head lang="en">
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Orion Film Rentals: Contact</title>
+	<title>Orion Film Rentals: About</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
@@ -60,33 +59,17 @@
   </div>
 	</header>
 
-	<div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 card card-block bg-light contact-deck">
+  <div class="container px-3 py-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Status</h1>
+    <p><?php
+    if( isset($_SESSION['success']) AND !empty($_SESSION['success']) ) {
 
-          <h1>Contact Us!</h1>
-          <div id="status"><?php echo $errorMsg.$successMsg; ?></div>
-          <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="contact" class="form-padding">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" value="<?php echo $name;?>" autofocus required>
-            </div>
+      echo $_SESSION['success'];
 
-            <div class="form-group">
-              <label for="email">Email address</label>
-              <input type="email" class="form-control" name="email" value="<?php echo $email;?>" required>
-            </div>
+    }
+    ?></p>
+  </div>
 
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea class="form-control" rows="4" name="message" value="<?php echo $message;?>" required></textarea>
-            </div>
-
-            <button type="submit" id="submit" name="submit" class="btn form-btn">Submit</button>
-          </form>
-        </div>
-      </div>
-	</div>
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
