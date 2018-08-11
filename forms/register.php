@@ -64,9 +64,11 @@
 
 			}
 			else { // Email doesn't already exist in a database, proceed...
+				date_default_timezone_set("Africa/Lagos");
+				$regdate = date("Y-m-d H:i:s");
 
-		    $sql = "INSERT INTO users (firstname, lastname, email, password) "
-		            . "VALUES ('$firstname','$lastname','$email','$password')";
+		    $sql = "INSERT INTO users (firstname, lastname, email, password, reg_date) "
+		            . "VALUES ('$firstname','$lastname','$email','$password', '$regdate')";
 
 		    // Add user to the database
 		    if ( $conn->query($sql) ){
