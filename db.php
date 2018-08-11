@@ -3,10 +3,10 @@
 
 	mysqli_report(MYSQLI_REPORT_STRICT);
 
-	$host = "localhost";
-	$username = "root";
-	$password = "KyIkzt9mJRsFNkEq";
-	$dbname = "localdb";
+	$host = 'db4free.net';
+	$username = 'chuck_huey';
+	$password = 'KyIkzt9mJRsFNkEq';
+	$dbname = "orion_accounts";
 
 	try {
 		$conn = new mysqli($host, $username, $password,$dbname);

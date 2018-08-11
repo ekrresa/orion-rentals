@@ -67,6 +67,13 @@
       echo $_SESSION['success'];
 
     }
+    elseif( isset($_SESSION['error']) AND !empty($_SESSION['error']) ) {
+
+      echo $_SESSION['error'];
+      session_unset();
+      session_destroy();
+
+    }
     ?></p>
   </div>
 

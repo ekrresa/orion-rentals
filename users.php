@@ -73,13 +73,6 @@
 	<div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 card card-block bg-light contact-deck">
-          <div>
-            <?php
-              if ($error != "") {
-                echo $error;
-              }
-            ?>
-          </div>
           <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><h4>Sign Up</h4></a>
