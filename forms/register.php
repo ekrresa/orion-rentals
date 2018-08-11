@@ -1,4 +1,5 @@
 <?php
+	use PHPMailer\PHPMailer\PHPMailer;
 
 	// Trim POST variables of whitespace and slashes
 	function test_input($data) {
@@ -14,6 +15,7 @@
 	if (isset($_POST["signup"])) {
 
 		include 'db.php'; //Database connection
+		require 'vendor/autoload.php';
 
 		if (empty($_POST["firstname"])) {
 	    $_SESSION['error'] .= "<small>Please enter your first name</small><br>";
@@ -68,10 +70,34 @@
 
 		    // Add user to the database
 		    if ( $conn->query($sql) ){
-		    	$firstname = $lastname = $email = $password = "";
-		  		$_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully</div>';
-		  		header("location: status.php");
-		    }
+		    	$mail = new PHPMailer;
+
+		    	$mail->isSMTP();
+					$mail->Host = 'smtp.gmail.com';
+					$mail->SMTPAuth = true;
+					$mail->Username = 'ekrresaochuko@gmail.com';
+					$mail->Password = 'Aurora@845';
+					$mail->SMTPSecure = 'tls';
+					$mail->Port = 587;
+					$mail->isHTML(true);
+
+					$mail->setFrom('ekrresaochuko@gmail.com', 'Orion Film Rentals');
+					$mail->addAddress($email, $firstname);
+					$mail->Subject = 'User Registration';
+
+					$bodyContent = '<h1>Welcome '.$firstname.'</h1>';
+					$bodyContent .= '<p>Thank you for signing up with us. Below is your username</p><br>';
+					$bodyContent .= '<p>Username: '.$email.'</p>';
+					$mail->Body = $bodyContent;
+
+					if(!$mail->send()) {
+				    $_SESSION['error'] = '<div class="alert alert-danger" role="alert">Mail error. Not to worry though, you are registered</div>';
+	        	header("location: status.php");
+					} else {
+					  $_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully. Check your mail for your login details.</div>';
+		  			header("location: status.php");
+					}
+				}
 
 		    else {
 	        $_SESSION['error'] = '<div class="alert alert-danger" role="alert">User with this email already exists</div>';
