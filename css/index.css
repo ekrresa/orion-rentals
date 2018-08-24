@@ -72,7 +72,6 @@ ul li {
   height: 35px;
   border-radius: 4px;
   padding: 17px;
-  background-color: inherit;
   color: whitesmoke;
   font-size: 1em;
 }
@@ -86,7 +85,7 @@ input[type=search]:focus {
 
 .form-inline button {
   width: 40px;
-  height: 35px;
+  height: 36px;
 }
 
 .form-error {

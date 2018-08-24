@@ -28,6 +28,12 @@
       <!-- ***********NAVBAR LINKS************* -->
       <div class="collapse navbar-collapse nav-bar-right" id="navbarTogglerDemo02">
         <ul class="navbar-nav mt-2 mt-lg-0">
+          <li>
+            <form id="search-form" class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-1" type="search" placeholder="Search Movies...">
+              <button id="search-btn" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="gallery.php">Gallery</a>
           </li>
@@ -39,9 +45,9 @@
               if( isset($_SESSION['success']) && !empty($_SESSION['success']) ):
                   echo '<a class="nav-link" href="users.php?logout=1">Log Out</a>';
                   // echo '<div class="dropdown nav-link">
-                  //   <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  //     $_SESSION['name']
-                  //   </a>
+                  //   <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
+                  //     $_SESSION['name'].
+                  //   '</a>
                   //   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   //     <a class="dropdown-item" href="#">My Profile</a>
                   //     <a class="dropdown-item" href="#">Request a Movie</a>
@@ -49,7 +55,6 @@
                   //     <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
                   //   </div>
                   // </div>';
-
               else:
                   echo '<a class="nav-link" href="users.php">Sign In</a>';
               endif;
@@ -62,10 +67,6 @@
             <a class="nav-link" href="contact.php">Contact Us</a>
           </li>
         </ul>
-        <form id="search-form" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search Movies...">
-          <button id="search-btn" type="submit" style="display: none;"><i class="fa fa-search"></i></button>
-        </form>
       </div>
     </nav>
   </div>

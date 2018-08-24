@@ -97,6 +97,7 @@
 	        	header("location: status.php");
 					} else {
 					  $_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully. Check your mail for your login details.</div>';
+					  $_SESSION['name'] = strtoupper($firstname);
 		  			header("location: status.php");
 					}
 				}

@@ -33,7 +33,8 @@ if (isset($_POST["login"])) {
 
 		    if ( password_verify($_POST['password'], $user['password']) ) {
 
-		      $_SESSION['success'] = '<div class="alert alert-success" role="alert">You are logged in.</div>';;
+		      $_SESSION['success'] = '<div class="alert alert-success" role="alert">You are logged in.</div>';
+		      $_SESSION['name'] = strtoupper($user['password']);
 		      header("location: status.php");
 
 		    }
