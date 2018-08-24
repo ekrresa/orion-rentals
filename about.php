@@ -3,7 +3,7 @@
  ?>
 
 <!DOCTYPE html>
-<html style="height: 100%;">
+<html>
 <head lang="en">
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,6 +38,18 @@
             <?php
               if( isset($_SESSION['success']) && !empty($_SESSION['success']) ):
                   echo '<a class="nav-link" href="users.php?logout=1">Log Out</a>';
+                  // echo '<div class="dropdown nav-link">
+                  //   <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  //     $_SESSION['name']
+                  //   </a>
+                  //   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  //     <a class="dropdown-item" href="#">My Profile</a>
+                  //     <a class="dropdown-item" href="#">Request a Movie</a>
+                  //     <div class="dropdown-divider"></div>
+                  //     <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
+                  //   </div>
+                  // </div>';
+
               else:
                   echo '<a class="nav-link" href="users.php">Sign In</a>';
               endif;

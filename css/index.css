@@ -45,6 +45,23 @@ header {
   margin-left: auto;
 }
 
+.navbar-nav .nav-item {
+  font-size: 15px;
+}
+
+.navbar-nav .nav-item {
+  color: #01bd7e;
+  cursor: pointer;
+}
+
+#dropdownMenuButton {
+  font-weight: 600;
+}
+
+.dropdown-item {
+  font-size: 13px;
+}
+
 ul li {
   list-style: none;
   display: inline;
@@ -78,7 +95,6 @@ input[type=search]:focus {
 
 li {
   padding-left: 4px;
-  padding-right: 4px;
 }
 
 .navbar-toggler {
