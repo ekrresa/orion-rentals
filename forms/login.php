@@ -35,7 +35,7 @@ if (isset($_POST["login"])) {
 
 		      $_SESSION['success'] = '<div class="alert alert-success" role="alert">You are logged in.</div>';
 		      $_SESSION['name'] = strtoupper($user['password']);
-		      header("location: status.php");
+		      header("location: profile.php");
 
 		    }
 		    else {

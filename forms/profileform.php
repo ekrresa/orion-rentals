@@ -82,34 +82,10 @@
 
 		    // Add user to the database
 		    if ( $conn->query($sql) ){
-		    	$mail = new PHPMailer;
 
-		    	$mail->isSMTP();
-					$mail->Host = 'smtp.gmail.com';
-					$mail->SMTPAuth = true;
-					$mail->Username = 'ekrresaochuko@gmail.com';
-					$mail->Password = 'Aurora@845';
-					$mail->SMTPSecure = 'tls';
-					$mail->Port = 587;
-					$mail->isHTML(true);
-
-					$mail->setFrom('ekrresaochuko@gmail.com', 'Orion Film Rentals');
-					$mail->addAddress($email, $firstname);
-					$mail->Subject = 'User Registration';
-
-					$bodyContent = '<h1>Welcome '.$firstname.'</h1>';
-					$bodyContent .= '<p>Thank you for signing up with us. Below is your username</p><br>';
-					$bodyContent .= '<p>Username: '.$email.'</p>';
-					$mail->Body = $bodyContent;
-
-					if(!$mail->send()) {
-				    $_SESSION['error'] = '<div class="alert alert-danger" role="alert">Mail error. Not to worry though, you are registered</div>';
-	        	header("location: status.php");
-					} else {
-					  $_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully. Check your mail for your login details.</div>';
-					  $_SESSION['name'] = strtoupper($firstname);
-		  			header("location: profile.php");
-					}
+				  $_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully. Check your mail for your login details.</div>';
+				  $_SESSION['name'] = strtoupper($firstname);
+	  			header("location: profile.php");
 				}
 
 		    else {
