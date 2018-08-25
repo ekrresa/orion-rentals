@@ -46,3 +46,9 @@
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: #08122bd9;
 }
+
+#profile-form {
+	background-color: #01150b85;
+	padding-left: inherit;
+  padding-right: inherit;
+}
