@@ -7,7 +7,7 @@
 <head lang="en">
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Orion Film Rentals: About</title>
+	<title>Orion Film Rentals: Profile</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
@@ -72,23 +72,44 @@
   </div>
   </header>
 
-  <div class="container px-3 py-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Status</h1>
-    <p><?php
-    if( isset($_SESSION['success']) AND !empty($_SESSION['success']) ) {
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="display-4">Profile</h1>
+        <form class="card card-block form-padding" id="profile-form">
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">First name</label>
+              <input type="text" class="form-control" name="firstname" value="" autofocus required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Last name</label>
+              <input type="text" class="form-control" name="lastname" value="" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name">Phone Number</label>
+            <input type="text" class="form-control" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Address</label>
+            <input type="text" class="form-control" name="address" required>
+          </div>
+          <div class="form-group">
+            <label for="name">City</label>
+            <input type="text" class="form-control" name="address" required>
+          </div>
+          <div class="form-group">
+            <label for="name">State</label>
+            <input type="text" class="form-control" name="address" required>
+          </div>
 
-      echo $_SESSION['success'];
-
-    }
-    elseif( isset($_SESSION['error']) AND !empty($_SESSION['error']) ) {
-
-      echo $_SESSION['error'];
-      session_unset();
-      session_destroy();
-
-    }
-    ?></p>
+          <button type="submit" class="btn form-btn">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
+
 
 
 <script src="js/jquery.js"></script>

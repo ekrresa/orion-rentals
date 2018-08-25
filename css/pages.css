@@ -21,6 +21,11 @@
    color: whitesmoke;
 }
 
+.form-btn:hover {
+	background-color: #218838;
+  border-color: #1e7e34;
+}
+
 .pricing-header {
   max-width: 700px;
 }
