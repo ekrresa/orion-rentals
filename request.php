@@ -7,13 +7,21 @@
 <head lang="en">
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Orion Film Rentals: About</title>
+	<title>Orion Film Rentals: Request</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/pages.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
+
+<?php
+
+  if (empty($_SESSION["success"]) && empty($_SESSION["name"])) {
+    header("location: users.php");
+  }
+
+?>
 <body>
 
 	<header class="fixed-top">
@@ -43,18 +51,17 @@
           <li class="nav-item">
             <?php
               if( isset($_SESSION['success']) && !empty($_SESSION['success']) ):
-                  echo '<a class="nav-link" href="users.php?logout=1">Log Out</a>';
-                  // echo '<div class="dropdown nav-link">
-                  //   <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
-                  //     $_SESSION['name'].
-                  //   '</a>
-                  //   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  //     <a class="dropdown-item" href="#">My Profile</a>
-                  //     <a class="dropdown-item" href="#">Request a Movie</a>
-                  //     <div class="dropdown-divider"></div>
-                  //     <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
-                  //   </div>
-                  // </div>';
+                echo '<div class="dropdown nav-link">
+                    <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
+                      $_SESSION['name'].
+                    '</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="profile.php">My Profile</a>
+                      <a class="dropdown-item" href="request.php">Request a Movie</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
+                    </div>
+                  </div>';
               else:
                   echo '<a class="nav-link" href="users.php">Sign In</a>';
               endif;

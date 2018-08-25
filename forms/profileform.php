@@ -1,5 +1,4 @@
 <?php
-	use PHPMailer\PHPMailer\PHPMailer;
 
 	// Trim POST variables of whitespace and slashes
 	function test_input($data) {
@@ -12,10 +11,9 @@
 	$firstname = $lastname = $email = $password = "";
 
 		// *************SERVER VALIDATION***************
-	if (isset($_POST["signup"])) {
+	if (isset($_POST["submit"])) {
 
 		include 'db.php'; //Database connection
-		require 'vendor/autoload.php';
 
 		if (empty($_POST["firstname"])) {
 	    $_SESSION['error'] .= "<small>Please enter your first name</small><br>";
@@ -29,20 +27,32 @@
 	    $lastname = $conn->escape_string(test_input($_POST["lastname"]));
 	  }
 
-	  if (empty($_POST["email"])) {
-	    $_SESSION['error'] .= "<small>Please enter your email address</small><br>";
+	  if (empty($_POST["phone"])) {
+	    $_SESSION['error'] .= "<small>Please enter your phone number</small><br>";
 	  }
-	  elseif ($_POST["email"] && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false) {
-		  $_SESSION['error'] .= "<small>The email address entered is invalid.</small><br>";
-		}
 	  else {
-	    $email = $conn->escape_string(test_input($_POST["email"]));
+	    $phone = $conn->escape_string(test_input($_POST["phone"]));
 	  }
 
-	  if (empty($_POST["password"])) {
-	    $_SESSION['error'] .= "<small>Please your password is required.</small><br>";
-	  }else {
-	  	$password = $conn->escape_string(password_hash(test_input($_POST['password']), PASSWORD_BCRYPT));
+	  if (empty($_POST["address"])) {
+	    $_SESSION['error'] .= "<small>Please enter your address</small><br>";
+	  }
+	  else {
+	    $address = $conn->escape_string(test_input($_POST["address"]));
+	  }
+
+	  if (empty($_POST["city"])) {
+	    $_SESSION['error'] .= "<small>Please enter your city</small><br>";
+	  }
+	  else {
+	    $city = $conn->escape_string(test_input($_POST["city"]));
+	  }
+
+	  if (empty($_POST["state"])) {
+	    $_SESSION['error'] .= "<small>Please enter your state number</small><br>";
+	  }
+	  else {
+	    $state = $conn->escape_string(test_input($_POST["state"]));
 	  }
 
 

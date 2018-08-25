@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/pages.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
+
 <body>
 
 	<header class="fixed-top">
@@ -43,18 +44,17 @@
           <li class="nav-item">
             <?php
               if( isset($_SESSION['success']) && !empty($_SESSION['success']) ):
-                  echo '<a class="nav-link" href="users.php?logout=1">Log Out</a>';
-                  // echo '<div class="dropdown nav-link">
-                  //   <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
-                  //     $_SESSION['name'].
-                  //   '</a>
-                  //   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  //     <a class="dropdown-item" href="#">My Profile</a>
-                  //     <a class="dropdown-item" href="#">Request a Movie</a>
-                  //     <div class="dropdown-divider"></div>
-                  //     <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
-                  //   </div>
-                  // </div>';
+                  echo '<div class="dropdown nav-link">
+                    <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
+                      $_SESSION['name'].
+                    '</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="profile.php">My Profile</a>
+                      <a class="dropdown-item" href="request.php">Request a Movie</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
+                    </div>
+                  </div>';
               else:
                   echo '<a class="nav-link" href="users.php">Sign In</a>';
               endif;
@@ -76,7 +76,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <h1 class="display-4">Profile</h1>
-        <form class="card card-block form-padding" id="profile-form">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" class="card card-block form-padding" id="profile-form">
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="firstName">First name</label>
@@ -89,7 +89,7 @@
           </div>
           <div class="form-group">
             <label for="name">Phone Number</label>
-            <input type="text" class="form-control" name="phone" required>
+            <input type="tel" class="form-control" name="phone" maxlength="11" required>
           </div>
           <div class="form-group">
             <label for="name">Address</label>
@@ -97,14 +97,14 @@
           </div>
           <div class="form-group">
             <label for="name">City</label>
-            <input type="text" class="form-control" name="address" required>
+            <input type="text" class="form-control" name="city" required>
           </div>
           <div class="form-group">
             <label for="name">State</label>
-            <input type="text" class="form-control" name="address" required>
+            <input type="text" class="form-control" name="state" required>
           </div>
 
-          <button type="submit" class="btn form-btn">Submit</button>
+          <button type="submit" class="btn form-btn" name="submit">Submit</button>
         </form>
       </div>
     </div>
