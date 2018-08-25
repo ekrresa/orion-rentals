@@ -43,22 +43,6 @@
 	  }
 	  else {
 
-			date_default_timezone_set("Africa/Lagos");
-	  	$nowTime = date('Y-m-d h:i:sa');
-
-	  	$text = "$name,$email,$message,$nowTime";
-
-	  	// **********APPEND USER DETAILS TO DATABASE**********
-	  	$file = fopen("database/contact.csv","a");
-			fputcsv($file, explode(",", $text));
-			fclose($file);
-
-			// ***********GET INFORMATION FROM DATABASE****************
-			$csv = array_map("str_getcsv", file("database/contact.csv"));
-			$name = $csv[sizeof($csv)-1][0];
-			$email = $csv[sizeof($csv)-1][1];
-			$message = $csv[sizeof($csv)-1][2];
-
 			//Create a new PHPMailer instance
 			$mail = new PHPMailer;
 
