@@ -99,12 +99,14 @@
 					  $_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully. Check your mail for your login details.</div>';
 					  $_SESSION['name'] = strtoupper($firstname);
 		  			header("location: profile.php");
+		  			exit();
 					}
 				}
 
 		    else {
 	        $_SESSION['error'] = '<div class="alert alert-danger" role="alert">User with this email already exists</div>';
 	        header("location: status.php");
+	        exit();
 		    }
 
 			}

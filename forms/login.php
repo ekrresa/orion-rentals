@@ -34,13 +34,16 @@ if (isset($_POST["login"])) {
 		    if ( password_verify($_POST['password'], $user['password']) ) {
 
 		      $_SESSION['success'] = '<div class="alert alert-success" role="alert">You are logged in.</div>';
-		      $_SESSION['name'] = strtoupper($user['password']);
+		      $_SESSION['name'] = strtoupper($user['firstname']);
+		      $_SESSION['firstname'] = $user['firstname'];
+		      $_SESSION['surname'] = $user['lastname'];
 		      header("location: profile.php");
-
+		      exit();
 		    }
 		    else {
 		    	$_SESSION['error'] = '<div class="alert alert-danger" role="alert">You have entered wrong password, please try again!</div>';
 		    	header("location: status.php");
+		    	exit();
 		    }
 		}
 

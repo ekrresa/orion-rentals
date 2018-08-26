@@ -74,11 +74,11 @@
 
 	<div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-6 card card-block bg-light contact-deck">
+        <div class="col-md-6 card contact-deck">
 
           <h1>Contact Us!</h1>
           <div id="status"><?php echo $errorMsg.$successMsg; ?></div>
-          <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="contact" class="form-padding">
+          <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" class="form-padding">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" name="name" value="<?php echo $name;?>" autofocus required>

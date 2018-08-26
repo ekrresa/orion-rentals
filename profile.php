@@ -80,11 +80,11 @@
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label for="firstName">First name</label>
-              <input type="text" class="form-control" name="firstname" value="" autofocus required>
+              <input type="text" class="form-control" name="firstname" value="<?php echo $_SESSION['firstname'] ?>" autofocus required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="lastName">Last name</label>
-              <input type="text" class="form-control" name="lastname" value="" required>
+              <input type="text" class="form-control" name="lastname" value="<?php echo $_SESSION['surname'] ?>" required>
             </div>
           </div>
           <div class="form-group">
