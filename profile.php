@@ -82,7 +82,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
 
-        <h1 class="display-4">Profile</h1>
+        <h1 class="display-4">Edit Profile</h1>
 
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" class="card card-block form-padding" id="profile-form">
           <div class="form-row">

@@ -21,6 +21,10 @@
     header("location: users.php");
   }
 
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "forms/movie.php";
+  }
+
 ?>
 <body>
 
@@ -84,23 +88,37 @@
       <div class="col-md-6">
         <h1 class="display-4">Movie Request</h1>
 
-        <form class="card card-block form-padding" id="profile-form">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data" class="card card-block form-padding" id="profile-form">
           <div class="form-row">
             <div class="col-md-12 mb-3">
-              <label for="firstName">Movie Title</label>
-              <input type="text" class="form-control" name="firstname" value="" autofocus required>
+              <label>Movie Title</label>
+              <input type="text" class="form-control" name="title" autofocus required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="col-md-12 mb-3">
-              <label for="firstName">Request Message (Optional)</label>
-              <textarea class="form-control" rows="4" name="message"></textarea>
+              <label>Genre</label>
+              <input type="text" class="form-control" name="genre" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label>Year</label>
+              <input type="text" class="form-control" name="year" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-12 mb-3">
+              <label>Cover Image</label>
+              <input type="file" class="form-control" name="movie" required>
             </div>
           </div>
 
 
-          <button type="submit" class="btn form-btn">Submit</button>
+          <button type="submit" class="btn form-btn" name="upload">Submit</button>
         </form>
       </div>
     </div>
