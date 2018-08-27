@@ -15,6 +15,12 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 
+<?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "forms/profileform.php";
+  }
+
+?>
 <body>
 
 	<header class="fixed-top">
@@ -43,7 +49,7 @@
           </li>
           <li class="nav-item">
             <?php
-              if( isset($_SESSION['success']) && !empty($_SESSION['success']) ):
+              if( isset($_SESSION['name']) && !empty($_SESSION['name']) ):
                   echo '<div class="dropdown nav-link">
                     <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
                       $_SESSION['name'].
@@ -75,7 +81,9 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+
         <h1 class="display-4">Profile</h1>
+
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" class="card card-block form-padding" id="profile-form">
           <div class="form-row">
             <div class="col-md-6 mb-3">
@@ -104,7 +112,7 @@
             <input type="text" class="form-control" name="state" required>
           </div>
 
-          <button type="submit" class="btn form-btn" name="submit">Submit</button>
+          <button type="submit" class="btn form-btn" name="create">Submit</button>
         </form>
       </div>
     </div>

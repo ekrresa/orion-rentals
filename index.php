@@ -42,7 +42,7 @@
           </li>
           <li class="nav-item">
             <?php
-              if( isset($_SESSION['success']) && !empty($_SESSION['success']) ):
+              if( isset($_SESSION['name']) && !empty($_SESSION['name']) ):
                   echo '<div class="dropdown nav-link">
                     <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
                       $_SESSION['name'].

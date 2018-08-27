@@ -33,10 +33,11 @@ if (isset($_POST["login"])) {
 
 		    if ( password_verify($_POST['password'], $user['password']) ) {
 
-		      $_SESSION['success'] = '<div class="alert alert-success" role="alert">You are logged in.</div>';
 		      $_SESSION['name'] = strtoupper($user['firstname']);
 		      $_SESSION['firstname'] = $user['firstname'];
 		      $_SESSION['surname'] = $user['lastname'];
+		      $_SESSION['id'] = $user['id'];
+		      $conn->close();
 		      header("location: profile.php");
 		      exit();
 		    }

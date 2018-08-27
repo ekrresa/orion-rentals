@@ -8,10 +8,8 @@
 		return $data;
 	}
 
-	$firstname = $lastname = $email = $password = "";
-
 		// *************SERVER VALIDATION***************
-	if (isset($_POST["submit"])) {
+	if (isset($_POST["create"])) {
 
 		include 'db.php'; //Database connection
 
@@ -63,37 +61,29 @@
 	  }
 	  else {
 
-	  	// Check if user with that email already exists
-			$result = $conn->query("SELECT * FROM users WHERE email='$email'") or die($conn->error());
+			$id = $_SESSION['id'];
 
-			// We know user email exists if the rows returned are more than 0
-			if ( $result->num_rows > 0 ) {
+			date_default_timezone_set("Africa/Lagos");
+			$create_date = date("Y-m-d H:i:s");
 
-				$_SESSION['error'] = '<div class="alert alert-danger" role="alert">User with this email already exists</div>';
+
+	    $sql = "INSERT INTO `profiles`(user_id, firstname, lastname, phone, address, city, state, created_at) ". "VALUES ('$id', '$firstname','$lastname','$phone','$address', '$city', '$state', '$create_date')";
+
+
+	    if ( $conn->query($sql) ){
+
+			  $_SESSION['success'] = '<div class="alert alert-success" role="alert">Profile created successfully.</div>';
+			  $conn->close();
 				header("location: status.php");
-
+				exit();
 			}
-			else { // Email doesn't already exist in a database, proceed...
-				date_default_timezone_set("Africa/Lagos");
-				$regdate = date("Y-m-d H:i:s");
 
-		    $sql = "INSERT INTO users (firstname, lastname, email, password, reg_date) "
-		            . "VALUES ('$firstname','$lastname','$email','$password', '$regdate')";
-
-		    // Add user to the database
-		    if ( $conn->query($sql) ){
-
-				  $_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully. Check your mail for your login details.</div>';
-				  $_SESSION['name'] = strtoupper($firstname);
-	  			header("location: profile.php");
-				}
-
-		    else {
-	        $_SESSION['error'] = '<div class="alert alert-danger" role="alert">User with this email already exists</div>';
-	        header("location: status.php");
-		    }
-
-			}
+	    else {
+	      $_SESSION['error'] = '<div class="alert alert-danger" role="alert">'.$conn->error.'</div>';
+	      $conn->close();
+	      header("location: status.php");
+	      exit();
+	    }
 
 		}
 

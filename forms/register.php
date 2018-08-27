@@ -96,8 +96,9 @@
 				    $_SESSION['error'] = '<div class="alert alert-danger" role="alert">Mail error. Not to worry though, you are registered</div>';
 	        	header("location: status.php");
 					} else {
-					  $_SESSION['success'] = '<div class="alert alert-success" role="alert">User registered successfully. Check your mail for your login details.</div>';
+
 					  $_SESSION['name'] = strtoupper($firstname);
+					  $conn->close();
 		  			header("location: profile.php");
 		  			exit();
 					}
