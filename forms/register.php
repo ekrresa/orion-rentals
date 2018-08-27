@@ -97,6 +97,8 @@
 	        	header("location: status.php");
 					} else {
 						$_SESSION['id'] = $conn->insert_id;
+						$_SESSION['firstname'] = $firstname;
+		      	$_SESSION['surname'] = $lastname;
 					  $_SESSION['name'] = strtoupper($firstname);
 					  $conn->close();
 		  			header("location: profile.php");
