@@ -48,6 +48,7 @@
                     '</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="profile.php">My Profile</a>
+                      <a class="dropdown-item" href="movie.php">My Movies</a>
                       <a class="dropdown-item" href="request.php">Request a Movie</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="users.php?logout=1">Log Out</a>

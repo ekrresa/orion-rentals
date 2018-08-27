@@ -1,5 +1,6 @@
 <?php
   session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +8,7 @@
 <head lang="en">
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Orion Film Rentals: Profile</title>
+	<title>Orion Film Rentals: Request</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/index.css">
@@ -16,9 +17,16 @@
 </head>
 
 <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "forms/profileform.php";
+
+  if ( !isset($_SESSION['name']) && empty($_SESSION['name']) ) {
+    header("location: users.php");
   }
+
+  include 'db.php'; //Database connection
+  $id = $_SESSION['id'];
+  $result = $conn->query("SELECT * FROM `movies` WHERE user_id='$id'");
+
+  $serial = 1;
 
 ?>
 <body>
@@ -50,7 +58,7 @@
           <li class="nav-item">
             <?php
               if( isset($_SESSION['name']) && !empty($_SESSION['name']) ):
-                  echo '<div class="dropdown nav-link">
+                echo '<div class="dropdown nav-link">
                     <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.
                       $_SESSION['name'].
                     '</a>
@@ -80,46 +88,48 @@
   </header>
 
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-
-        <h1 class="display-4">Edit Profile</h1>
-
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" class="card card-block form-padding" id="profile-form">
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="firstName">First name</label>
-              <input type="text" class="form-control" name="firstname" value="<?php echo $_SESSION['firstname'] ?>" autofocus required>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="lastName">Last name</label>
-              <input type="text" class="form-control" name="lastname" value="<?php echo $_SESSION['surname'] ?>" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="name">Phone Number</label>
-            <input type="tel" class="form-control" name="phone" maxlength="11" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Address</label>
-            <input type="text" class="form-control" name="address" required>
-          </div>
-          <div class="form-group">
-            <label for="name">City</label>
-            <input type="text" class="form-control" name="city" required>
-          </div>
-          <div class="form-group">
-            <label for="name">State</label>
-            <input type="text" class="form-control" name="state" required>
-          </div>
-
-          <button type="submit" class="btn form-btn" name="create">Submit</button>
-        </form>
+    <div class="row">
+      <div class="col-md-12" style="text-align: center!important;">
+        <h1 class="display-4">My Movies</h1>
       </div>
     </div>
+
+    <div class="row" id="movie-display">
+      <div class="col-md-1">#</div>
+      <div class="col-md-6">Title</div>
+      <div class="col-md-2">Genre</div>
+      <div class="col-md-1">Year</div>
+      <div class="col-md-2">Date Uploaded</div>
+      <div class="col"><hr></div>
+    </div>
+
+    <?php
+
+      if ($result->num_rows > 0):
+
+        while($row = $result->fetch_assoc()):
+      ?>
+
+          <div class="row" id="movie-display">
+            <div class="col-md-1"><?php echo $serial++ ?></div>
+            <div class="col-md-6"><?php echo $row["title"] ?></div>
+            <div class="col-md-2"><?php echo $row["genre"] ?></div>
+            <div class="col-md-1"><?php echo $row["year"] ?></div>
+            <div class="col-md-2"><?php echo $row["upload_date"] ?></div>
+          </div>
+
+  <?php endwhile ?>
+  <?php else: ?>
+
+          <div class="row" id="movie-display">
+            <div class="col">You have not uploaded any movies.</div>
+          </div>
+
+  <?php endif ?>
+
+  <?php $conn->close(); ?>
+
   </div>
-
-
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>

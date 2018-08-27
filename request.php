@@ -22,7 +22,7 @@
   }
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "forms/movie.php";
+    include "forms/requestform.php";
   }
 
 ?>
@@ -61,6 +61,7 @@
                     '</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="profile.php">My Profile</a>
+                      <a class="dropdown-item" href="movie.php">My Movies</a>
                       <a class="dropdown-item" href="request.php">Request a Movie</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
@@ -88,7 +89,7 @@
       <div class="col-md-6">
         <h1 class="display-4">Movie Request</h1>
 
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data" class="card card-block form-padding" id="profile-form">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data" class="card card-block form-padding" id="profile-form">
           <div class="form-row">
             <div class="col-md-12 mb-3">
               <label>Movie Title</label>

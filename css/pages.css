@@ -57,3 +57,10 @@
 	padding-left: inherit;
   padding-right: inherit;
 }
+
+#movie-display {
+	background-color: #01150b85;
+  /*background-color: #0c8a4b6e;*/
+  padding: 3px;
+  border-radius: 3px;
+}
