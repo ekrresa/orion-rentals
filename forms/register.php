@@ -96,7 +96,7 @@
 				    $_SESSION['error'] = '<div class="alert alert-danger" role="alert">Mail error. Not to worry though, you are registered</div>';
 	        	header("location: status.php");
 					} else {
-
+						$_SESSION['id'] = $conn->insert_id;
 					  $_SESSION['name'] = strtoupper($firstname);
 					  $conn->close();
 		  			header("location: profile.php");
