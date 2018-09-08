@@ -16,21 +16,19 @@
 </head>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
   <div class="container px-3 py-3 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Status</h1>
     <p><?php
-    if( isset($_SESSION['success']) AND !empty($_SESSION['success']) ) {
 
-      echo $_SESSION['success'];
+    if( isset($_SESSION['error']) AND !empty($_SESSION['error']) ) {
 
-    }
-    elseif( isset($_SESSION['error']) AND !empty($_SESSION['error']) ) {
-
-      echo $_SESSION['error'];
+      echo '<div class="alert alert-danger" role="alert"><p><strong>
+      There were error(s) while submitting: </strong></p>' . $_SESSION['error'] . '</div>';
 
     }
+
     ?></p>
   </div>
 

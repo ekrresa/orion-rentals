@@ -1,6 +1,12 @@
 <?php
 
-$email = "";
+// Trim POST variables of whitespace and slashes
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
 
 if (isset($_POST["login"])) {
 

@@ -34,11 +34,11 @@
                       <a class="dropdown-item" href="movie.php">My Movies</a>
                       <a class="dropdown-item" href="request.php">Request a Movie</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="users.php?logout=1">Log Out</a>
+                      <a class="dropdown-item" href="account.php?logout=1">Log Out</a>
                     </div>
                   </div>';
               else:
-                  echo '<a class="nav-link" href="users.php">Sign In</a>';
+                  echo '<a class="nav-link" href="account.php">Sign In</a>';
               endif;
             ?>
           </li>

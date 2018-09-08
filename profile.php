@@ -16,6 +16,11 @@
 </head>
 
 <?php
+
+  if ( !isset($_SESSION['name']) && empty($_SESSION['name']) ) {
+    header("location: account.php");
+  }
+
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "forms/profileform.php";
   }
@@ -23,7 +28,7 @@
 ?>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
   <div class="container">
     <div class="row justify-content-center">

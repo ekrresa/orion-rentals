@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
 <!-- *****************CAROUSEL***************** -->
 	<div class="container-fluid">

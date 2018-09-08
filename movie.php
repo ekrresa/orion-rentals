@@ -19,7 +19,7 @@
 <?php
 
   if ( !isset($_SESSION['name']) && empty($_SESSION['name']) ) {
-    header("location: users.php");
+    header("location: account.php");
   }
 
   include 'db.php'; //Database connection
@@ -31,7 +31,7 @@
 ?>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
   <div class="container">
     <div class="row">

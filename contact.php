@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
 	<div class="container">
       <div class="row justify-content-center">

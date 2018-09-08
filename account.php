@@ -1,7 +1,6 @@
 <?php
   session_start();
-  include "forms/register.php";
-  include "forms/login.php";
+  // include "forms/login.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +25,14 @@
   elseif ( isset($_SESSION['name']) AND !empty($_SESSION['name']) ) {
     header("location: index.php");
   }
+  elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "api/users/register.php";
+  }
 
 ?>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
 	<div class="container">
       <div class="row justify-content-center">
@@ -79,7 +81,7 @@
 
                 <div class="form-group">
                   <label for="email">Email address</label>
-                  <input type="email" class="form-control" name="email" value="<?php echo $email;?>" required>
+                  <input type="email" class="form-control" name="email" required>
                 </div>
 
                 <div class="form-group">

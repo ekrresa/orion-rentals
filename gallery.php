@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
 	<div class="jumbotron jumbotron-fluid">
 	  <div class="container">

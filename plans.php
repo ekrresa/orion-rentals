@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<?php include 'config/header.php'; ?>
+<?php include 'layout/header.php'; ?>
 
   <div class="pricing-header px-3 py-3 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Plans</h1>
