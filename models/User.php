@@ -39,6 +39,23 @@ class User{
 
     }
 
+    private function checkLogin($email) {
+      $query = "SELECT id, firstname, lastname, email, password FROM " .$this->table_name. " WHERE email =:email LIMIT 1";
+
+      $stmt = $this->conn->prepare($query);
+      $stmt->bindParam(':email', $email);
+      $stmt->execute();
+
+      if ($stmt) {
+        $row_count = $stmt->fetch(PDO::FETCH_OBJ);
+        return $row_count;
+      }
+      else {
+        $_SESSION['error'] = "unable to execute query";
+        return;
+      }
+    }
+
     // Register Account
     public function registerUser($firstname, $lastname, $email, $password) {
 
@@ -75,6 +92,32 @@ class User{
         }
 
       }
+    }
+
+    public function loginUser($email, $password) {
+
+      if ($this->checkLogin($email) == false) {
+        $_SESSION['error'] = "user is not registered";
+        return false;
+      } else {
+        $user = $this->checkLogin($email);
+
+        if ( password_verify($password, $user->password) ) {
+
+          $_SESSION['name'] = strtoupper($user->firstname);
+          $_SESSION['firstname'] = $user->firstname;
+          $_SESSION['surname'] = $user->lastname;
+          $_SESSION['id'] = $user->id;
+          $this->conn = null;
+          return true;
+        }
+        else {
+          $_SESSION['error'] = "your password is not correct";
+          $this->conn = null;
+          return false;
+        }
+      }
+
     }
 
 }

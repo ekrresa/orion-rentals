@@ -1,6 +1,5 @@
 <?php
   session_start();
-  // include "forms/login.php";
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +26,7 @@
   }
   elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "api/users/register.php";
+    include "api/users/login.php";
   }
 
 ?>

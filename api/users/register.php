@@ -1,5 +1,5 @@
 <?php
-	use PHPMailer\PHPMailer\PHPMailer;
+	// use PHPMailer\PHPMailer\PHPMailer;
 
 	// Trim POST variables of whitespace and slashes
 	function test_input($data) {
@@ -31,11 +31,17 @@
 		$result = $user->registerUser($firstname, $lastname, $email, $password);
 
 		if ($result) {
+			$response["result"] = "success";
+      $response["message"] = "User Registered Successfully !";
 		  header("location: profile.php");
+		  return json_encode($response);
 	  	exit();
 		}
 		else {
+			$response["result"] = "failure";
+      $response["message"] = "Registration Failure";
       header("location: status.php");
+      return json_encode($response);
       exit();
 		}
 	}
