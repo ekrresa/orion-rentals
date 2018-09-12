@@ -43,4 +43,20 @@ class Movie {
     }
   }
 
+  public function getMovies($id) {
+
+  	$query = "SELECT * FROM `movies` WHERE user_id='$id'";
+  	$stmt = $this->conn->prepare($query);
+
+  	try {
+      $stmt->execute();
+      return $stmt;
+    }
+    catch (PDOException $e) {
+      $_SESSION['error'] = $e->getMessage();
+      $this->conn = null;
+      return false;
+    }
+  }
+
 }

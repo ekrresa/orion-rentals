@@ -53,14 +53,18 @@
 }
 
 #profile-form {
-	background-color: #01150b85;
+	background-color: #010b15d9;
 	padding-left: inherit;
   padding-right: inherit;
 }
 
 #movie-display {
-	background-color: #01150b85;
-  /*background-color: #0c8a4b6e;*/
-  padding: 3px;
+	background-color: #010b15d9;
+  padding: 0px 10px;
   border-radius: 3px;
+}
+
+.movie-btn {
+	width: auto;
+	height: auto;
 }

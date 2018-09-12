@@ -22,9 +22,7 @@
     header("location: account.php");
   }
 
-  include 'db.php'; //Database connection
-  $id = $_SESSION['id'];
-  $result = $conn->query("SELECT * FROM `movies` WHERE user_id='$id'");
+  include "api/movies/read.php";
 
   $serial = 1;
 
@@ -42,38 +40,35 @@
 
     <div class="row" id="movie-display">
       <div class="col-md-1">#</div>
-      <div class="col-md-6">Title</div>
+      <div class="col-md-4">Title</div>
       <div class="col-md-2">Genre</div>
       <div class="col-md-1">Year</div>
       <div class="col-md-2">Date Uploaded</div>
-      <div class="col"><hr></div>
+      <div class="col-md-12"><hr></div>
     </div>
 
     <?php
+      if ($num == 0):
+    ?>
+      <div class="row" id="movie-display">
+        <div class="col">You have not uploaded any movies.</div>
+      </div>
 
-      if ($result->num_rows > 0):
-
-        while($row = $result->fetch_assoc()):
-      ?>
-
-          <div class="row" id="movie-display">
-            <div class="col-md-1"><?php echo $serial++ ?></div>
-            <div class="col-md-6"><?php echo $row["title"] ?></div>
-            <div class="col-md-2"><?php echo $row["genre"] ?></div>
-            <div class="col-md-1"><?php echo $row["year"] ?></div>
-            <div class="col-md-2"><?php echo $row["upload_date"] ?></div>
-          </div>
+  <?php else:
+      while($row = $result->fetch(PDO::FETCH_ASSOC)):
+  ?>
+        <div class="row align-items-center" id="movie-display">
+          <div class="col-md-1"><?php echo $serial++ ?></div>
+          <div class="col-md-4"><?php echo $row["title"] ?></div>
+          <div class="col-md-2"><?php echo $row["genre"] ?></div>
+          <div class="col-md-1"><?php echo $row["year"] ?></div>
+          <div class="col-md-2"><?php echo $row["upload_date"] ?></div>
+          <div class="col-md-1 btn"><button class="btn btn-info movie-btn">Edit</button></div>
+          <div class="col-md-1 btn"><button class="btn btn-danger movie-btn">Delete</button></div>
+        </div>
 
   <?php endwhile ?>
-  <?php else: ?>
-
-          <div class="row" id="movie-display">
-            <div class="col">You have not uploaded any movies.</div>
-          </div>
-
   <?php endif ?>
-
-  <?php $conn->close(); ?>
 
   </div>
 

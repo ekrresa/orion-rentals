@@ -113,8 +113,8 @@ class User{
       $stmt->execute();
 
       if ($stmt) {
-        $row_count = $stmt->fetch(PDO::FETCH_OBJ);
-        return $row_count;
+        $rows = $stmt->fetch(PDO::FETCH_OBJ);
+        return $rows;
       }
       else {
         $_SESSION['error'] = "unable to execute query";
