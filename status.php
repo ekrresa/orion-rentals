@@ -28,6 +28,9 @@
       There were error(s) while submitting: </strong></p>' . $_SESSION['error'] . '</div>';
 
     }
+    else {
+      echo '<div class="alert alert-success" role="alert"><p>' . $_SESSION['success'] . '</p></div>';
+    }
 
     ?></p>
   </div>

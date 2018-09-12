@@ -13,49 +13,6 @@ class User{
       $this->conn = $db;
     }
 
-    // Check If User Exists
-    private function userExists($email) {
-
-      $query = "SELECT COUNT(*) FROM " .$this->table_name. " WHERE email =:email LIMIT 1";
-
-      $stmt = $this->conn->prepare($query);
-      $stmt->bindParam(':email', $email);
-      $stmt->execute();
-
-      if ($stmt) {
-        $row_count = $stmt->fetchColumn();
-
-        if ($row_count == 0){
-          return false;
-        }
-        else {
-          return true;
-        }
-      }
-      else {
-        $_SESSION['error'] = "unable to execute query";
-        return;
-      }
-
-    }
-
-    private function checkLogin($email) {
-      $query = "SELECT id, firstname, lastname, email, password FROM " .$this->table_name. " WHERE email =:email LIMIT 1";
-
-      $stmt = $this->conn->prepare($query);
-      $stmt->bindParam(':email', $email);
-      $stmt->execute();
-
-      if ($stmt) {
-        $row_count = $stmt->fetch(PDO::FETCH_OBJ);
-        return $row_count;
-      }
-      else {
-        $_SESSION['error'] = "unable to execute query";
-        return;
-      }
-    }
-
     // Register Account
     public function registerUser($firstname, $lastname, $email, $password) {
 
@@ -94,6 +51,7 @@ class User{
       }
     }
 
+    // User Login function
     public function loginUser($email, $password) {
 
       if ($this->checkLogin($email) == false) {
@@ -118,6 +76,50 @@ class User{
         }
       }
 
+    }
+
+    // Check If User Exists
+    private function userExists($email) {
+
+      $query = "SELECT COUNT(*) FROM " .$this->table_name. " WHERE email =:email LIMIT 1";
+
+      $stmt = $this->conn->prepare($query);
+      $stmt->bindParam(':email', $email);
+      $stmt->execute();
+
+      if ($stmt) {
+        $row_count = $stmt->fetchColumn();
+
+        if ($row_count == 0){
+          return false;
+        }
+        else {
+          return true;
+        }
+      }
+      else {
+        $_SESSION['error'] = "unable to execute query";
+        return;
+      }
+
+    }
+
+    // Check if email is registered
+    private function checkLogin($email) {
+      $query = "SELECT id, firstname, lastname, email, password FROM " .$this->table_name. " WHERE email =:email LIMIT 1";
+
+      $stmt = $this->conn->prepare($query);
+      $stmt->bindParam(':email', $email);
+      $stmt->execute();
+
+      if ($stmt) {
+        $row_count = $stmt->fetch(PDO::FETCH_OBJ);
+        return $row_count;
+      }
+      else {
+        $_SESSION['error'] = "unable to execute query";
+        return;
+      }
     }
 
 }
