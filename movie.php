@@ -21,6 +21,9 @@
   if ( !isset($_SESSION['name']) && empty($_SESSION['name']) ) {
     header("location: account.php");
   }
+  elseif ( isset($_POST["deletemovie"])) {
+    include "api/movies/delete.php";
+  }
 
   include "api/movies/read.php";
 
@@ -47,9 +50,8 @@
       <div class="col-md-12"><hr></div>
     </div>
 
-    <?php
-      if ($num == 0):
-    ?>
+  <?php if ($num == 0): ?>
+
       <div class="row" id="movie-display">
         <div class="col">You have not uploaded any movies.</div>
       </div>
@@ -63,14 +65,12 @@
           <div class="col-md-2"><?php echo $row["genre"] ?></div>
           <div class="col-md-1"><?php echo $row["year"] ?></div>
           <div class="col-md-2"><?php echo $row["upload_date"] ?></div>
-          <div class="col-md-1 btn"><button class="btn btn-info movie-btn">Edit</button></div>
-          <div class="col-md-1 btn"><button class="btn btn-danger movie-btn">Delete</button></div>
+          <div class="col-md-1 btn"><a href="request.php?edit=<?php echo $row['title'] ?>"><button class="btn btn-info movie-btn">Edit</button></a></div>
+          <div class="col-md-1 btn"><a href="api/movies/delete.php?delete=<?php echo $row['title'] ?>"><button type="submit" class="btn btn-danger movie-btn" name="deletemovie">Delete</button></a></div>
         </div>
 
   <?php endwhile ?>
   <?php endif ?>
-
-  </div>
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>

@@ -22,7 +22,13 @@
   }
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "api/movies/upload.php";
+
+    if (isset($_POST["update"])) {
+      include "api/movies/edit.php";
+    } else {
+      include "api/movies/upload.php";
+    }
+
   }
 
 ?>
@@ -33,40 +39,76 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="display-4">Movie Request</h1>
 
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data" class="card card-block form-padding" id="profile-form">
-          <div class="form-row">
-            <div class="col-md-12 mb-3">
-              <label>Movie Title</label>
-              <input type="text" class="form-control" name="title" autofocus required>
-            </div>
-          </div>
+  <?php if (isset($_GET["edit"])): ?>
+    <?php $_SESSION['pre_title'] =  $_GET["edit"]?>
+    <h1 class="display-4">Edit Movie</h1>
 
-          <div class="form-row">
-            <div class="col-md-12 mb-3">
-              <label>Genre</label>
-              <input type="text" class="form-control" name="genre" required>
-            </div>
-          </div>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data" class="card card-block form-padding" id="profile-form">
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Movie Title</label>
+          <input type="text" class="form-control" name="title" value="<?php echo $_GET["edit"] ?>" autofocus required>
+        </div>
+      </div>
 
-          <div class="form-row">
-            <div class="col-md-12 mb-3">
-              <label>Year</label>
-              <input type="text" class="form-control" name="year" required>
-            </div>
-          </div>
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Genre</label>
+          <input type="text" class="form-control" name="genre" required>
+        </div>
+      </div>
 
-          <div class="form-row">
-            <div class="col-md-12 mb-3">
-              <label>Cover Image</label>
-              <input type="file" class="form-control" name="movie" required>
-            </div>
-          </div>
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Year</label>
+          <input type="text" class="form-control" name="year" required>
+        </div>
+      </div>
 
 
-          <button type="submit" class="btn form-btn" name="upload">Submit</button>
-        </form>
+      <button type="submit" class="btn form-btn" name="update">Update</button>
+    </form>
+
+  <?php else: ?>
+
+    <h1 class="display-4">Movie Request</h1>
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data" class="card card-block form-padding" id="profile-form">
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Movie Title</label>
+          <input type="text" class="form-control" name="title" autofocus required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Genre</label>
+          <input type="text" class="form-control" name="genre" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Year</label>
+          <input type="text" class="form-control" name="year" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label>Cover Image</label>
+          <input type="file" class="form-control" name="movie" required>
+        </div>
+      </div>
+
+
+      <button type="submit" class="btn form-btn" name="upload">Submit</button>
+    </form>
+
+  <?php endif ?>
+
       </div>
     </div>
   </div>

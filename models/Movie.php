@@ -45,8 +45,9 @@ class Movie {
 
   public function getMovies($id) {
 
-  	$query = "SELECT * FROM `movies` WHERE user_id='$id'";
+  	$query = "SELECT * FROM " .$this->table_name. " WHERE user_id= :id";
   	$stmt = $this->conn->prepare($query);
+  	$stmt->bindParam(':id', $id);
 
   	try {
       $stmt->execute();
@@ -57,6 +58,51 @@ class Movie {
       $this->conn = null;
       return false;
     }
+  }
+
+  public function editMovie($title, $genre, $year) {
+
+  	$user_id = $_SESSION['id'];
+  	$pre_title = $_SESSION['pre_title'];
+
+		date_default_timezone_set("Africa/Lagos");
+		$upload_date = date("Y-m-d");
+
+  	$query = "UPDATE " .$this->table_name. " SET title= :title, genre= :genre, year= :year, upload_date= :upload_date WHERE id= :user_id AND title= :pre_title";
+
+  	$stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':genre', $genre);
+    $stmt->bindParam(':year', $year);
+    $stmt->bindParam(':upload_date', $upload_date);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':pre_title', $pre_title);
+
+    try {
+      $stmt->execute();
+      return true;
+    }
+    catch (PDOException $e) {
+      $_SESSION['error'] = $e->getMessage();
+      $this->conn = null;
+      return false;
+    }
+  }
+
+  public function deleteMovie($title) {
+  	$user_id = $_SESSION['id'];
+
+  	$query = "DELETE FROM " .$this->table_name. " WHERE user_id= :id AND title= :title";
+  	$stmt = $this->conn->prepare($query);
+  	$stmt->bindParam(':id', $user_id);
+  	$stmt->bindParam(':title', $title);
+
+  	if ($stmt->execute()) {
+  		return true;
+  	} else {
+  		return false;
+  	}
+
   }
 
 }
