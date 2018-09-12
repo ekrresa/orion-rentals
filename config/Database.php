@@ -2,10 +2,10 @@
 
 class Database {
 
-	private $host = 'db4free.net';
-	private $username = 'chuck_huey';
+	private $host = 'localhost';
+	private $username = 'root';
 	private $password = 'KyIkzt9mJRsFNkEq';
-	private $dbname = "orion_accounts";
+	private $dbname = "localdb";
 	private $conn;
 
 	public function getConnection() {

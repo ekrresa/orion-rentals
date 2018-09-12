@@ -13,10 +13,16 @@
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-		// *************SERVER VALIDATION***************
 	if (isset($_POST["upload"])) {
 
-		include 'db.php'; //Database connection
+		include_once 'models/Movie.php';
+
+		// get database connection
+		$database = new Database();
+		$db = $database->getConnection();
+
+		// prepare user object
+		$movie = new Movie($db);
 
 		// Check if image file is a actual image or fake image
 		$check = getimagesize($_FILES["movie"]["tmp_name"]);
@@ -53,31 +59,20 @@
 		    }
 		}
 
-		$title = $conn->escape_string(test_input($_POST["title"]));
-		$genre = $conn->escape_string(test_input($_POST["genre"]));
-		$year = $conn->escape_string(test_input($_POST["year"]));
+		$title = test_input($_POST["title"]);
+		$genre = test_input($_POST["genre"]);
+		$year = test_input($_POST["year"]);
 		$pic_url = basename( $_FILES["movie"]["name"]);
 
-		$id = $_SESSION['id'];
+		if ($movie->uploadMovie($title, $genre, $year, $pic_url)) {
 
-		date_default_timezone_set("Africa/Lagos");
-		$upload_date = date("Y-m-d");
-
-
-    $sql = "INSERT INTO `movies`(user_id, title, genre, year, pic_url, upload_date) ". "VALUES ('$id', '$title','$genre','$year','$pic_url', '$upload_date')";
-
-
-    if ( $conn->query($sql) ){
-
-		  $_SESSION['success'] = '<div class="alert alert-success" role="alert">Movie uploaded successfully.</div>';
-		  $conn->close();
+		  $_SESSION['success'] = 'Movie uploaded successfully';
 			header("location: status.php");
 			exit();
 		}
 
     else {
-      $_SESSION['error'] = '<div class="alert alert-danger" role="alert">'.$conn->error.'</div>';
-      $conn->close();
+      $_SESSION['error'] = 'Unable to upload movie';
       header("location: status.php");
       exit();
     }
