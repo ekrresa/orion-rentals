@@ -1,15 +1,6 @@
 <?php
 	// use PHPMailer\PHPMailer\PHPMailer;
 
-	// Trim POST variables of whitespace and slashes
-	function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
-
-		// *************SERVER VALIDATION***************
 	if (isset($_POST["signup"])) {
 
 		// require 'vendor/autoload.php';
@@ -22,17 +13,21 @@
 		// prepare user object
 		$user = new User($db);
 
-    $firstname = test_input($_POST["firstname"]);
-    $lastname = test_input($_POST["lastname"]);
-    $email = test_input($_POST["email"]);
-    $password = password_hash(test_input($_POST['password']), PASSWORD_BCRYPT);
+    $user->firstname = $_POST["firstname"];
+    $user->lastname = $_POST["lastname"];
+    $user->email = $_POST["email"];
+    $user->password = $_POST['password'];
 
-  	// Check if user with that email already exists
-		$result = $user->registerUser($firstname, $lastname, $email, $password);
+    //Attempt user registration
+		$result = $user->registerUser();
 
 		if ($result) {
 			$response["result"] = "success";
       $response["message"] = "User Registered Successfully !";
+      $_SESSION["id"] = $user->user_id;
+      $_SESSION['firstname'] = $user->firstname;
+      $_SESSION['surname'] = $user->lastname;
+      $_SESSION['name'] = strtoupper($user->firstname);		
 		  header("location: profile.php");
 		  return json_encode($response);
 	  	exit();
@@ -40,6 +35,7 @@
 		else {
 			$response["result"] = "failure";
       $response["message"] = "Registration Failure";
+      $_SESSION['error'] = $user->error;
       header("location: status.php");
       return json_encode($response);
       exit();

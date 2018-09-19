@@ -5,7 +5,7 @@ class Database {
 	private $host = 'localhost';
 	private $username = 'root';
 	private $password = 'KyIkzt9mJRsFNkEq';
-	private $dbname = "localdb";
+	private $dbname = "orion_db";
 	private $conn;
 
 	public function getConnection() {

@@ -4,50 +4,64 @@ require_once 'config/Database.php';
 
 class User{
 
-    // database connection, table name and error
+    // database connection, table name, user_id and error
     private $conn;
     private $table_name = "users";
+    public $error;
+    public $user_id;
+
+    //User details
+    public $firstname;
+    public $lastname;
+    public $email;
+    public $password;
 
     // constructor with $db as database connection
     public function __construct($db){
       $this->conn = $db;
     }
 
-    // Register Account
-    public function registerUser($firstname, $lastname, $email, $password) {
+    //Clean up data
+    private function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
 
-      if ($this->userExists($email) == true) {
-        $_SESSION['error'] = "user with this email has been registered";
+    // Register Account
+    public function registerUser() {
+
+      if ( $this->userExists() ) {
+        $this->error = "user with this email has been registered";
         return;
       }
       else {
+        //Encrypt password
+        $this->password = password_hash($this->test_input($this->password), PASSWORD_BCRYPT);
+
+        //Get current date
         date_default_timezone_set("Africa/Lagos");
         $regdate = date("Y-m-d H:i:s");
 
         $query = "INSERT INTO " .$this->table_name. " (firstname, lastname, email, password, reg_date) "
         . "VALUES (:firstname, :lastname, :email, :password, :regdate)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':firstname', $firstname);
-        $stmt->bindParam(':lastname', $lastname);
-        $stmt->bindParam(':password', $password);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':firstname', $this->test_input($this->firstname));
+        $stmt->bindParam(':lastname', $this->test_input($this->lastname));
+        $stmt->bindParam(':password', $this->password);
+        $stmt->bindParam(':email', $this->test_input($this->email));
         $stmt->bindParam(':regdate', $regdate);
 
-        try {
-          $stmt->execute();
-          $_SESSION['id'] = $this->conn->lastInsertId();
-          $_SESSION['firstname'] = $firstname;
-          $_SESSION['surname'] = $lastname;
-          $_SESSION['name'] = strtoupper($firstname);
-          $this->conn = null;
+        if ($stmt->execute()) {
+          $this->user_id = $this->conn->lastInsertId();
           return true;
+        } 
+        else {
+          $this->error = "Error in registering user. Please try again";
         }
-        catch (PDOException $e) {
-          $_SESSION['error'] = $e->getMessage();
-          $this->conn = null;
-          return;
-        }
-
+        
+        
       }
     }
 
@@ -79,12 +93,12 @@ class User{
     }
 
     // Check If User Exists
-    private function userExists($email) {
+    private function userExists() {
 
       $query = "SELECT COUNT(*) FROM " .$this->table_name. " WHERE email =:email LIMIT 1";
 
       $stmt = $this->conn->prepare($query);
-      $stmt->bindParam(':email', $email);
+      $stmt->bindParam(':email', $this->test_input($this->email));
       $stmt->execute();
 
       if ($stmt) {
@@ -96,10 +110,6 @@ class User{
         else {
           return true;
         }
-      }
-      else {
-        $_SESSION['error'] = "unable to execute query";
-        return;
       }
 
     }
