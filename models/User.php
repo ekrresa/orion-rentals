@@ -29,8 +29,11 @@ class User{
       return $data;
     }
 
-    // Register Account
+    // User Registration Function
     public function registerUser() {
+      $this->firstname = $this->test_input($this->firstname);
+      $this->lastname = $this->test_input($this->lastname);
+      $this->email = $this->test_input($this->email);
 
       if ( $this->userExists() ) {
         $this->error = "user with this email has been registered";
@@ -47,10 +50,10 @@ class User{
         $query = "INSERT INTO " .$this->table_name. " (firstname, lastname, email, password, reg_date) "
         . "VALUES (:firstname, :lastname, :email, :password, :regdate)";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':firstname', $this->test_input($this->firstname));
-        $stmt->bindParam(':lastname', $this->test_input($this->lastname));
+        $stmt->bindParam(':firstname', $this->firstname);
+        $stmt->bindParam(':lastname', $this->lastname);
         $stmt->bindParam(':password', $this->password);
-        $stmt->bindParam(':email', $this->test_input($this->email));
+        $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':regdate', $regdate);
 
         if ($stmt->execute()) {
@@ -59,6 +62,7 @@ class User{
         } 
         else {
           $this->error = "Error in registering user. Please try again";
+          $this->conn = null;
         }
         
         
@@ -92,13 +96,18 @@ class User{
 
     }
 
+    public function deleteUser() {
+      $query = "DELETE FROM ".$this->table_name." WHERE id ='$this->user_id'";
+      $this->conn->exec($query);
+    }
+
     // Check If User Exists
     private function userExists() {
 
       $query = "SELECT COUNT(*) FROM " .$this->table_name. " WHERE email =:email LIMIT 1";
 
       $stmt = $this->conn->prepare($query);
-      $stmt->bindParam(':email', $this->test_input($this->email));
+      $stmt->bindParam(':email', $this->email);
       $stmt->execute();
 
       if ($stmt) {
